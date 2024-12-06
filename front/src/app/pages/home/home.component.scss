@@ -1,0 +1,16 @@
+form{
+    display: flex;
+    flex-direction: row;
+    ion-searchbar{
+        --border-radius: 30px;
+    }
+}
+
+ion-grid {
+    height: 100%;
+    overflow-y: auto;
+}
+
+ion-content {
+    --overflow: visible;
+}
