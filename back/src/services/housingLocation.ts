@@ -28,11 +28,11 @@ export const updateById = async (newLocation: HousingLocation) => {
   const res = await db.query(
     `
     UPDATE public.locations  
-    SET nombre=$2, city=$3, photo=$4, availableUnits=$5 , wifi=$6 , laundry=$7 
+    SET nombre=$2, city=$3, photo=$4, units=$5 , wifi=$6 , laundry=$7 
     WHERE id=$1
     RETURNING *;
     `,
-    [newLocation.id ,newLocation.nombre , newLocation.city , newLocation.photo, newLocation.availableUnits, newLocation.wifi, newLocation.laundry]
+    [newLocation.id ,newLocation.nombre , newLocation.city , newLocation.photo, newLocation.units, newLocation.wifi, newLocation.laundry]
     );
   if (res.rowCount === 0) throw new IPFNotFoundError("");
   return res.rows[0];
@@ -41,10 +41,10 @@ export const updateById = async (newLocation: HousingLocation) => {
 export const create = async (newLocation: HousingLocationPost) => {
   const res = await db.query(
     `
-    INSERT INTO public.locations (nombre, city, photo, availableUnits, wifi, laundry) 
+    INSERT INTO public.locations (nombre, city, photo, units, wifi, laundry) 
     VALUES($1, $2, $3, $4, $5, $6) RETURNING *;
     `,
-    [newLocation.nombre , newLocation.city , newLocation.photo, newLocation.availableUnits, newLocation.wifi, newLocation.laundry]
+    [newLocation.nombre , newLocation.city , newLocation.photo, newLocation.units, newLocation.wifi, newLocation.laundry]
   );
   return res.rows[0];
 }; 

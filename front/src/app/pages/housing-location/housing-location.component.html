@@ -1,13 +1,13 @@
 <ion-col>
   <ion-card>
-    <img alt="Foto de {{housingLocation.name}}" src="{{housingLocation.photo}}" />
+    <img alt="Foto de {{housingLocation.nombre}}" src="{{housingLocation.photo}}" />
     <ion-card-header>
-      <ion-card-title>{{housingLocation.name}}</ion-card-title>
+      <ion-card-title>{{housingLocation.nombre}}</ion-card-title>
       <ion-card-subtitle>{{housingLocation.city}}</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
-      <p>Unidades disponibles: {{housingLocation.availableUnits}}</p>
+      <p>Unidades disponibles: {{housingLocation.units}}</p>
       <a [routerLink]="['/details', housingLocation.id]">Ver mas...</a>
     </ion-card-content>
   </ion-card>

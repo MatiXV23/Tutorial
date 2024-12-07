@@ -26,9 +26,8 @@ export class DetailsComponent  implements OnInit {
 
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id'])
-    this.housingService.getHousingLocationById(housingLocationId).then((housingLocation) => {
-      this.housingLocation = housingLocation;
-    })
+    this.housingService.getHousingLocationById(housingLocationId).subscribe( res => 
+      this.housingLocation = res);
    }
    
   ngOnInit() {}

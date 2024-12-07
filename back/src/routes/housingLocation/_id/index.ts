@@ -8,13 +8,14 @@ const housingLocationRoutes: FastifyPluginAsyncTypebox = async (
   opts
 ):Promise<void> => {
   fastify.get("/", {
-    schema: {
+    schema: { 
       tags: ["housingLocation"],
       params: Type.Pick(HousingLocation, ["id"]),
-      summary: "Obtener un usuario por id",
+      summary: "Obtener un HousingLocation por id",
+      security: [],
       response: {
         200: {
-          description: "Usuario encontrado. ",
+          description: "HousingLocation encontrado. ",
           content: {
             "application/json": {
               schema: HousingLocation,
@@ -33,14 +34,7 @@ const housingLocationRoutes: FastifyPluginAsyncTypebox = async (
     schema: {
       tags: ["housingLocation"],
       params: Type.Pick(HousingLocation, ["id"]),
-      summary: "Borrar usuario por id",
-      description:
-        " ## Implementar y validar \n " +
-        " - token \n " +
-        " - params \n " +
-        " - que el usuario que ejecuta es administrador \n " +
-        " - está bien que falle si el usuario aún tiene tareas asignadas. \n " +
-        " - response. \n ",
+      summary: "Borrar HousingLocation por id",
       response: {
         204: {
           description: "No content",
@@ -58,21 +52,12 @@ const housingLocationRoutes: FastifyPluginAsyncTypebox = async (
   fastify.put("/", {
     schema: {
       tags: ["housingLocation"],
-      summary: "Actualizar usuario.",
-      description:
-        " ## Implementar y validar \n " +
-        "- token \n " +
-        "- No se puede editar la contraseña. \n " +
-        "- body. \n " +
-        "- params \n " +
-        "- response. \n " +
-        "- que el usuario que ejecuta es administrador o el mismo usuario a modificar.",
-
+      summary: "Actualizar HousingLocation.",
       body: HousingLocation,
       params: Type.Pick(HousingLocation, ["id"]),
       response: {
         200: {
-          description: "Usuario actualizado.",
+          description: "HousingLocation actualizado.",
           content: {
             "application/json": {
               schema: HousingLocation,

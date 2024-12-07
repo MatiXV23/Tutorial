@@ -4,6 +4,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { IPFError } from "../errors/index.js";
 import { Usuario } from "../types/usuario.js";
 
+
 if (!process.env.JWT_SECRET)
   throw new IPFError(
     "Tienes que especificar la variable de entorno JWT_SECRET. "
@@ -40,7 +41,8 @@ export default fp(async (fastify: FastifyInstance) => {
       if (url?.startsWith("/docs") || url?.startsWith("/auth")) {
         return; //No valido token para estas rutas.
       }
-      await request.jwtVerify();
+      return;
+      //await request.jwtVerify();
     }
   );
 });

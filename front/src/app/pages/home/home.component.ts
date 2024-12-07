@@ -5,6 +5,7 @@ import { HousingLocationComponent } from '../housing-location/housing-location.c
 import { HousingLocation } from '../housing-location/housing-location';
 import { HousingService } from 'src/app/services/housing.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,14 +19,18 @@ export class HomeComponent  implements OnInit {
   filteredLocationList: HousingLocation[] = []; 
 
   constructor() {
-    this.housingService.getAllHousingLocation().then((housingLocationList: HousingLocation[]) =>{
+    this.housingService.getAllHousingLocation().subscribe({next: (housingLocationList) => {
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
-    })
+    }})
+    /* this.housingService.getAllHousingLocation2().then((housingLocationList) => {
+      this.housingLocationList = housingLocationList;
+      this.filteredLocationList = housingLocationList;
+    }) */
    }
 
   ngOnInit() {}
-
+  
 
   filterResults(filter: string){ 
     if (!filter) this.filteredLocationList = this.housingLocationList;
@@ -34,3 +39,4 @@ export class HomeComponent  implements OnInit {
   }
   
 }
+

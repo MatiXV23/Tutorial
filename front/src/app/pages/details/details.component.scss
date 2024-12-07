@@ -45,14 +45,14 @@ ion-card.details-card{
 
 @media only screen and (max-width: 800px) {
     ion-card.details-card{
-        height: 85vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         img{
-            height: 50%;
-            aspect-ratio: 1/1;
+            width: 60%;
+            aspect-ratio: 4/3;
             margin-top: 16px;
         }
     }

@@ -6,7 +6,7 @@ import swaggerui from "@fastify/swagger-ui";
 const url = `http://localhost:3000/`;
 
 const swaggerOpts: SwaggerOptions = {
-  openapi: {
+  openapi: { 
     info: {
       title: "API PARCIAL",
       summary:

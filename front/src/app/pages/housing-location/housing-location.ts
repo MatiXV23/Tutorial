@@ -1,9 +1,9 @@
 export interface HousingLocation {
      id: number,
-     name: string,
+     nombre: string,
      city: string,
      photo: string,
-     availableUnits: number,
+     units: number,
      wifi: boolean,
      laundry: boolean,
 }

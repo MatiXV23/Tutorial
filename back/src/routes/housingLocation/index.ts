@@ -12,6 +12,7 @@ const housingLocationRoutes: FastifyPluginAsync = async (
     schema: {
       tags: ["housingLocation"],
       summary: "Obtener todos los housingLocation",
+      security: [],
       response: {
         200: {
           description: "Listado de housingLocation. ",
@@ -22,11 +23,10 @@ const housingLocationRoutes: FastifyPluginAsync = async (
           },
         },
       },
+      
     },
     handler: async function (request, reply) {
-      const all = housingService.findAll();
-      console.log(all);
-      return all;
+      return housingService.findAll();
     },
   });
 
