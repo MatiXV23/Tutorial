@@ -41,7 +41,7 @@ export const updateById = async (usuario: Usuario) => {
 export const create = async (nuevoUsuario: UsuarioPost) => {
   const res = await db.query(
     `
-    INSERT INTO public.usuarios (username,email,contraseña) 
+    INSERT INTO public.usuarios (nombre,email,contraseña) 
     VALUES($1, $2, crypt($3, gen_salt('bf'))) RETURNING *;
     `,
     [nuevoUsuario.username, nuevoUsuario.email, nuevoUsuario.contraseña]

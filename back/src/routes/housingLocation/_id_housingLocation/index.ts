@@ -1,44 +1,38 @@
 import { Type } from "@sinclair/typebox";
-import { Usuario } from "../../../types/usuario.js";
-import * as usuarioService from "../../../services/usuarios.js";
+import * as housingService from "../../../services/housingLocation.js";
+import { HousingLocation } from "../../../types/housingLocation.js"; 
 import { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 
-const usuariosRoutes: FastifyPluginAsyncTypebox = async (
+const housingLocationRoutes: FastifyPluginAsyncTypebox = async (
   fastify,
   opts
-): Promise<void> => {
+):Promise<void> => {
   fastify.get("/", {
     schema: {
-      tags: ["usuarios"],
-      params: Type.Pick(Usuario, ["id_usuario"]),
+      tags: ["housingLocation"],
+      params: Type.Pick(HousingLocation, ["id"]),
       summary: "Obtener un usuario por id",
-      description:
-        " ## Implementar y validar \n " +
-        " - token \n " +
-        " - params \n " +
-        " - que el usuario que ejecuta es administrador o el propio usuario buscado \n " +
-        " - response. \n ",
       response: {
         200: {
           description: "Usuario encontrado. ",
           content: {
             "application/json": {
-              schema: Usuario,
+              schema: HousingLocation,
             },
           },
         },
       },
     },
     handler: async function (request, reply) {
-      const { id_usuario } = request.params;
-      return usuarioService.findById(id_usuario);
+      const { id } = request.params;
+      return housingService.findById(id);
     },
   });
 
   fastify.delete("/", {
     schema: {
-      tags: ["usuarios"],
-      params: Type.Pick(Usuario, ["id_usuario"]),
+      tags: ["housingLocation"],
+      params: Type.Pick(HousingLocation, ["id"]),
       summary: "Borrar usuario por id",
       description:
         " ## Implementar y validar \n " +
@@ -55,15 +49,15 @@ const usuariosRoutes: FastifyPluginAsyncTypebox = async (
     },
     
     handler: async function (request, reply) {
-      const { id_usuario } = request.params;
+      const { id } = request.params;
       reply.code(204);
-      return usuarioService.deleteById(id_usuario);
+      return housingService.deleteById(id);
     },
   });
 
   fastify.put("/", {
     schema: {
-      tags: ["usuarios"],
+      tags: ["housingLocation"],
       summary: "Actualizar usuario.",
       description:
         " ## Implementar y validar \n " +
@@ -74,24 +68,24 @@ const usuariosRoutes: FastifyPluginAsyncTypebox = async (
         "- response. \n " +
         "- que el usuario que ejecuta es administrador o el mismo usuario a modificar.",
 
-      body: Usuario,
-      params: Type.Pick(Usuario, ["id_usuario"]),
+      body: HousingLocation,
+      params: Type.Pick(HousingLocation, ["id"]),
       response: {
         200: {
           description: "Usuario actualizado.",
           content: {
             "application/json": {
-              schema: Usuario,
+              schema: HousingLocation,
             },
           },
         },
       },
     },
     handler: async function (request, reply) {
-      const usuario = request.body as Usuario;
-      return usuarioService.updateById(usuario);
+      const location = request.body as HousingLocation;
+      return housingService.updateById(location);
     },
   });
 };
 
-export default usuariosRoutes;
+export default housingLocationRoutes;

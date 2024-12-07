@@ -1,31 +1,31 @@
 services:
-  # base:
-  #   image: desafio/base
-  #   container_name: base
-  #   build:
-  #     context: ./base
-  #   environment:
-  #     - POSTGRES_USER=${POSTGRES_USER}
-  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  #   ports:
-  #     - 5432:5432
-  # back:
-  #   image: desafio/back
-  #   container_name: back
-  #   build:
-  #     context: ./back
-  #   # tty: true
-  #   command: sh -c "npm install && npm run dev"
-  #   environment:
-  #     - PGDATABASE=${POSTGRES_USER}
-  #     - PGUSER=${POSTGRES_USER}
-  #     - PGPASSWORD=${POSTGRES_PASSWORD}
-  #     - PGHOST=base
-  #     - JWT_SECRET=${JWT_SECRET}
-  #   ports:
-  #     - 3000:3000
-  #   volumes:
-  #     - ./back:/back
+  base:
+    image: desafio/base
+    container_name: base
+    build:
+      context: ./base
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - 5432:5432
+  back:
+    image: desafio/back
+    container_name: back
+    build:
+      context: ./back
+    # tty: true
+    command: sh -c "npm install && npm run dev"
+    environment:
+      - PGDATABASE=${POSTGRES_USER}
+      - PGUSER=${POSTGRES_USER}
+      - PGPASSWORD=${POSTGRES_PASSWORD}
+      - PGHOST=base
+      - JWT_SECRET=${JWT_SECRET}
+    ports:
+      - 3000:3000
+    volumes:
+      - ./back:/back
   front:
     image: desafio/front
     container_name: front
@@ -46,4 +46,4 @@ services:
       - 80:80
     depends_on:
       - front
-    #  - back
+      - back

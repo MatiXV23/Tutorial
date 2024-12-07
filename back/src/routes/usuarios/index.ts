@@ -35,7 +35,6 @@ const usuariosRoutes: FastifyPluginAsync = async (
         },
       },
     },
-    onRequest: [fastify.verifyAdmin],
     handler: async function (request, reply) {
       return usuarioService.findAll();
     },
@@ -58,7 +57,6 @@ const usuariosRoutes: FastifyPluginAsync = async (
         },
       },
     },
-    onRequest: [fastify.verifyAdmin],
     handler: async function (request, reply) {
       const nuevoUsuario = request.body as UsuarioPost;
       reply.code(201);

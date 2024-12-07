@@ -3,7 +3,7 @@ import fp from "fastify-plugin";
 import swagger, { SwaggerOptions } from "@fastify/swagger";
 import swaggerui from "@fastify/swagger-ui";
 
-const url = `http://localhost/back`;
+const url = `http://localhost:3000/`;
 
 const swaggerOpts: SwaggerOptions = {
   openapi: {
@@ -55,6 +55,10 @@ const swaggerOpts: SwaggerOptions = {
         name: "usuarios",
         description: "Endpoints de Usuario.",
       },
+      {
+        name: "housingLocation",
+        description: "Endpoints de Usuario.",
+      }
     ],
   },
   hideUntagged: true,
