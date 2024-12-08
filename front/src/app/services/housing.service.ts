@@ -10,7 +10,6 @@ import { HttpClient} from '@angular/common/http';
 export class HousingService {
   url = "http://localhost:3000/housingLocation"
   
-  url2 = "http://localhost:5000/locations"  
   http: HttpClient = inject(HttpClient)
 
   constructor() {  }
@@ -19,6 +18,7 @@ export class HousingService {
     return this.http.get<HousingLocation[]>(this.url);
   }
 
+  
   getHousingLocationById(id: number): Observable<HousingLocation>{
     return this.http.get<HousingLocation>(`${this.url}/${id}`);
   }
@@ -27,7 +27,6 @@ export class HousingService {
     const data = await fetch(this.url)
     return data.json() ?? []
   }
-
   
   async getHousingLocationById2(id: number): Promise<HousingLocation | undefined> {
     const data = fetch(`${this.url}/${id}`);

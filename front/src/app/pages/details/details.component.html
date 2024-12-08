@@ -1,5 +1,5 @@
 <ion-card class="details-card">
-  <img alt="Foto de {{housingLocation?.nombre}}" src="{{housingLocation?.photo}}" />
+  <img alt="Foto de {{housingLocation?.nombre}}" [src]="housingLocation?.photo"/>
 
   <ion-grid class="desc">
     <ion-row>
@@ -12,34 +12,36 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class="extraDetails">
         <ion-list>
           <ion-item>
             <ion-label>Unidades disponibles: {{housingLocation?.units}}</ion-label>
           </ion-item>
           <ion-item>
-            <ion-label>Tiene Wifi: {{housingLocation?.wifi}}</ion-label>
+            <ion-label><img src="../../../assets/icon/wifi.svg" class="icono"> Wifi <img [src]="wifiImg" class="icono check"></ion-label>
           </ion-item>
           <ion-item>
-            <ion-label>Tiene Lavadora: {{housingLocation?.laundry}}</ion-label>
+            <ion-label><img src="../../../assets/icon/water.svg" class="icono"> Lavadora <img [src]="laundryImg" class="icono check"></ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col size-lg="9" size-xs="12" size-md="11">
+        <ion-card>
 
-        <form [formGroup]="contactForm" (submit)="contactApplication()">
-          <h1>¿Interesado?</h1>
-          <div class="nombre-completo">
-            <ion-input formControlName="firstName" label="Nombre" label-placement="floating" fill="outline" placeholder="Nombre"></ion-input>
-            <ion-input formControlName="lastName" label="Apellido" label-placement="floating" fill="outline" placeholder="Apellido"></ion-input>
-          </div>
-          <ion-input formControlName="email" label="Email" label-placement="floating" fill="outline" placeholder="Email"></ion-input>
-          <ion-button type="submit" shape="round">contactar</ion-button>
-        </form>
-        
+          <form [formGroup]="contactForm" (submit)="contactApplication()">
+            <h1>¿Interesado?</h1>
+            <div class="nombre-completo">
+              <ion-input formControlName="firstName" label="Nombre" label-placement="floating" fill="outline" placeholder="Nombre"></ion-input>
+              <ion-input formControlName="lastName" label="Apellido" label-placement="floating" fill="outline" placeholder="Apellido"></ion-input>
+            </div>
+            <ion-input formControlName="email" label="Email" label-placement="floating" fill="outline" placeholder="Email"></ion-input>
+            <ion-button type="submit" shape="round" expand="block" class="ion" class="buttonContact">contactar</ion-button>
+          </form>
+
+        </ion-card>
       </ion-col>
     </ion-row>
 

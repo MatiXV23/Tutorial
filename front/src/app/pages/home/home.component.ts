@@ -23,10 +23,6 @@ export class HomeComponent  implements OnInit {
       this.housingLocationList = housingLocationList;
       this.filteredLocationList = housingLocationList;
     }})
-    /* this.housingService.getAllHousingLocation2().then((housingLocationList) => {
-      this.housingLocationList = housingLocationList;
-      this.filteredLocationList = housingLocationList;
-    }) */
    }
 
   ngOnInit() {}

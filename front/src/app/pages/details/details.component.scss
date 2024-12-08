@@ -10,13 +10,16 @@ ion-card.details-card{
     ion-grid{
         ion-row{
             height: fit-content;
-        
+            
             &:nth-child(3){
                 justify-content: center;
                 display: flex;
                 flex-direction: row;
                 h1{
                     color: white;
+                }
+                ion-card{
+                    background-color: var(--ion-background-color-step-100);
                 }
                 ion-col{
                     width: fit-content;
@@ -41,6 +44,27 @@ ion-card.details-card{
             }
         }
     }
+
+    .buttonContact{
+        margin: 16px;
+    }
+
+    .extraDetails{
+        ion-label{
+            display: flex;
+            flex-direction: row;
+        }
+        .icono{
+            width: 20px;
+            margin-right: 15px;
+            filter: invert(99%) sepia(99%) saturate(2%) hue-rotate(325deg) brightness(107%) contrast(100%);
+        }
+        .check {
+            margin-left: 8px;
+            filter: invert(86%) sepia(98%) saturate(6281%) hue-rotate(349deg) brightness(98%) contrast(107%);
+        }
+    }   
+    
 }
 
 @media only screen and (max-width: 800px) {

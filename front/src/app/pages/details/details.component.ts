@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from 'src/app/services/housing.service';
 import { HousingLocation } from '../housing-location/housing-location';
-import { IonGrid, IonRow, IonCol, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonLabel, IonItem, IonList, IonButton, IonInput } from "@ionic/angular/standalone";
+import { IonGrid, IonRow, IonCol, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonLabel, IonItem, IonList, IonButton, IonInput, IonIcon } from "@ionic/angular/standalone";
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -24,10 +24,18 @@ export class DetailsComponent  implements OnInit {
     email: new FormControl(""),
   }) 
 
+  laundryImg = "../../../assets/icon/cross.svg";
+  wifiImg = "../../../assets/icon/cross.svg";
+    
   constructor() {
     const housingLocationId = Number(this.route.snapshot.params['id'])
-    this.housingService.getHousingLocationById(housingLocationId).subscribe( res => 
-      this.housingLocation = res);
+    this.housingService.getHousingLocationById(housingLocationId).subscribe( res => {
+      res.photo = `../../../assets/${res.photo}`
+      this.housingLocation = res
+      if (res.laundry) this.laundryImg =  "../../../assets/icon/tick.svg";
+      if (res.wifi) this.wifiImg =  "../../../assets/icon/tick.svg";
+      
+    });
    }
    
   ngOnInit() {}
