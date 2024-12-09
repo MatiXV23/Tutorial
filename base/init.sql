@@ -12,6 +12,10 @@ INSERT INTO public.usuarios (email, nombre, contraseña, is_admin)
 VALUES('admin@desafio.com', 'admin', crypt('@Admin1', gen_salt('bf')), true) 
 ON CONFLICT DO NOTHING;
 
+INSERT INTO public.usuarios (email, nombre, contraseña, is_admin)
+VALUES('ej@ej.com', 'Matias', crypt('123', gen_salt('bf')), true) 
+ON CONFLICT DO NOTHING;
+
 CREATE TABLE IF NOT EXISTS locations (
     id SERIAL PRIMARY KEY,
     nombre TEXT NOT NULL,

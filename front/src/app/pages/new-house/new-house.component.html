@@ -1,0 +1,45 @@
+<main class="newHouse" (submit)="onClick()" [formGroup]="newHouseForm">
+  <ion-card>
+    <ion-card-title>New House</ion-card-title>
+    <form >
+      <ion-input formControlName="nombre" label="House Name" label-placement="floating" fill="outline" placeholder="Enter new house Name" required></ion-input>
+      <ion-input formControlName="city" label="City" label-placement="floating" fill="outline" placeholder="Enter new house City"></ion-input>
+      <ion-input formControlName="photo" label="Photo" label-placement="floating" fill="outline" placeholder="Enter new house Photo"></ion-input>
+      <ion-input formControlName="units" label="Units" label-placement="floating" fill="outline" placeholder="Enter new house Units"></ion-input>
+      <div class="finalStats">
+        <div>
+          <div class="checkbox">
+            <ion-checkbox formControlName="wifi"></ion-checkbox>
+            <img src="../../../assets/icon/wifi.svg" class="icono">
+            <p>Wifi</p>
+          </div>
+          <div class="checkbox">
+            <ion-checkbox formControlName="laundry"></ion-checkbox>
+            <img src="../../../assets/icon/water.svg" class="icono">
+            <p>Laundry</p>
+          </div>
+        </div>
+
+        <ion-button size="large" type="submit">
+          publish house
+        </ion-button>
+      </div>
+    </form>
+  </ion-card>
+
+  <div *ngIf="succes">
+    <ion-card class="alerta success">
+      <ion-card-title>Casa agregada</ion-card-title>
+      <ion-card-subtitle>Ve al inicio para verla</ion-card-subtitle>      
+    </ion-card>
+  </div>
+  <div></div>
+ 
+
+  <ion-card class="alerta error" *ngIf="error">  
+    <ion-card-title>Error al agregar la casa</ion-card-title>
+    <ion-card-subtitle [innerHTML]="errorMsg"></ion-card-subtitle>
+  </ion-card>
+  
+</main>
+  

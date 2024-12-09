@@ -1,9 +1,18 @@
 form{
     display: flex;
     flex-direction: row;
+    margin: 25px;
     ion-searchbar{
         --border-radius: 30px;
     }
+    .newHouseIconCont{
+
+        .newHouseIcon{
+            width: 50px;
+            filter: brightness(0) saturate(100%) invert(44%) sepia(93%) saturate(1892%) hue-rotate(203deg) brightness(104%) contrast(101%);
+        }
+    }
+    
 }
 
 ion-grid {

@@ -3,10 +3,15 @@
   <form>
     <ion-grid>
       <ion-row class="ion-justify-content-center ion-align-items-center">
-        <ion-col size="10" size-xs="9">
+        <ion-col size ="1" class="newHouseIconCont">
+          <a routerLink="newHouse">
+            <img src="../assets/icon/add-circle-outline.svg" class="newHouseIcon">
+          </a>
+        </ion-col>
+        <ion-col size-lg="9" size-xs="7" size-md="8">
           <ion-searchbar placeholder="Ciudad" show-clear-button="always" color="medium" #filter></ion-searchbar>
         </ion-col>
-        <ion-col size="2" size-xs="1">
+        <ion-col size-lg="2" size-xs="4" size-md="8">
           <ion-button shape="round" (click)="filterResults(filter.value!)">buscar</ion-button>
         </ion-col>
       </ion-row>

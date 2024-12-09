@@ -118,8 +118,23 @@ ion-item.selected {
   --color: var(--ion-color-primary);
 }
 
-header{
-  margin: 16px;
+ion-header{
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ion-chip {
+    background-color: var(--ion-background-color);
+    border: 1px solid var(--ion-background-color-step-100);
+    border-radius: 25px;
+    ion-avatar{
+      margin: 3px;
+    }
+    ion-label{
+      margin: 3px;
+    }
+  }
 }
 
 html{

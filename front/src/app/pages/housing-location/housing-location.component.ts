@@ -1,5 +1,5 @@
 import { Component, Input, input, OnInit } from '@angular/core';
-import { HousingLocation } from './housing-location';
+import { HousingLocation } from '../../../types/housing-location';
 import { CommonModule } from '@angular/common';
 import { IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent} from "@ionic/angular/standalone";
 import { RouterModule } from '@angular/router';

@@ -1,8 +1,30 @@
 <main style="height: 100%; overflow-y: auto;">
-    <ion-header class="ion-padding">
+    <ion-header class="ion-padding main-header">
       <a routerLink="">
         <img src="../assets/logo.svg" class="brandlogo" alt="logo" aria-hidden="true">
       </a>
+
+      <a routerLink="login" *ngIf="!logged">
+        <ion-chip>
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label [innerHTML]="userName"></ion-label>
+        </ion-chip>
+      </a>
+
+
+      <a routerLink="User/{{user.id}}" *ngIf="logged">
+        <ion-chip>
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label [innerHTML]="user.nombre"></ion-label>
+        </ion-chip>
+      </a>
+
+      
+      
     </ion-header>
     <section class="content">
       <router-outlet></router-outlet>

@@ -1,0 +1,71 @@
+$margin : 30px;
+.newHouse{
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    ion-card, ion-input, ion-button, ion-card-title{
+        margin: $margin;
+        width: auto;
+    }
+    
+    ion-card{
+        width: 100%;
+        max-width: 600px;
+        
+        ion-card-title{
+            color: var(--ion-color-primary);
+            font-size: 25px;     
+            text-align: center;
+        }
+        ion-input{
+            margin: 20px $margin;
+        }
+    }
+
+    .checkbox{
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        ion-checkbox{
+            margin: 6px 25px 6px $margin;
+        }
+    }
+    
+    .finalStats{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .icono{
+        width: 20px;
+        margin-right: 15px;
+        filter: invert(86%) sepia(98%) saturate(6281%) hue-rotate(349deg) brightness(98%) contrast(107%)
+    }
+
+    .alerta{ 
+        position: fixed;
+        right: 0;
+        width: auto;
+        text-align: center;
+        
+        ion-card-title, ion-card-subtitle{
+            margin: 15px;
+            color: white;
+        }
+    }
+
+    .error {
+        background-color: #f53441;
+        border: 2px solid #f17d85;
+    }
+
+    .success {
+        background-color: #2dd55b;
+        border: 2px solid #42d96b;
+    }
+}
